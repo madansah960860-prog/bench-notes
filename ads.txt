@@ -1,0 +1,9 @@
+# ads.txt for benchnotes.co.uk
+# Authorized Digital Sellers (IAB Tech Lab specification 1.1)
+#
+# Placeholder only, commented out so that no unauthorised seller is
+# declared. Replace with the real AdSense publisher ID before go-live.
+#
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+#
+contact=bench@benchnotes.co.uk

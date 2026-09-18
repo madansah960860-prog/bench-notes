@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"
+     fill="none" stroke="currentColor" stroke-width="1.4" role="img"
+     aria-label="A graph-paper square with a loaf profile drawn on it">
+  <title>Bench Notes</title>
+  <rect x="2.5" y="2.5" width="25" height="25"/>
+  <path d="M2.5 10.5h25M2.5 18.5h25M10.5 2.5v25M18.5 2.5v25" stroke-width="0.8" opacity=".45"/>
+  <path d="M6.5 22.5 11 13l4 6 3-4 5.5 7.5Z" fill="currentColor" stroke="none" opacity=".9"/>
+</svg>

@@ -1,0 +1,294 @@
+/* ==========================================================================
+   Bench Notes - stylesheet
+   Built only from design-system.md.
+   24px graph paper drawn in CSS. Everything snaps to that grid.
+   Zero radius. 1px grid-blue rules. No shadows.
+   ========================================================================== */
+
+/* --- 1. TOKENS ---------------------------------------------------------- */
+:root {
+  --ink:         #1B2A4A;
+  --ground:      #FCFCF7;
+  --surface:     #F4F6FA;
+  --brand:       #1B2A4A;
+  --accent:      #B5651D;   /* non-text only - 4.21:1 */
+  --crust-deep:  #9A5417;   /* derived: crust for small text - 5.58:1 */
+  --rule:        #DCE6F2;   /* grid blue */
+  --muted:       #5A6478;
+
+  --step--1: clamp(0.85rem, 0.84rem + 0.06vw, 0.88rem);
+  --step-0:  clamp(1.0625rem, 1.05rem + 0.08vw, 1.10rem);
+  --step-1:  clamp(1.275rem, 1.25rem + 0.14vw, 1.32rem);
+  --step-2:  clamp(1.53rem, 1.49rem + 0.25vw, 1.59rem);
+  --step-3:  clamp(1.84rem, 1.77rem + 0.42vw, 1.90rem);
+  --step-4:  clamp(2.20rem, 2.09rem + 0.66vw, 2.29rem);
+  --step-5:  clamp(2.64rem, 2.46rem + 1.05vw, 2.75rem);
+
+  /* the 24px graph grid - every vertical value is a multiple of it */
+  --g1:24px; --g2:48px; --g3:72px; --g4:96px; --g5:120px;
+  --h1:12px; --h2:6px;
+
+  --rhythm: 96px;
+  --column: 780px;
+  --wide: 980px;
+  --measure: 70ch;
+
+  --prose: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+/* --- 2. RESET ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd, table { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* --- 3. THE GRAPH PAPER ------------------------------------------------- */
+body {
+  background-color: var(--ground);
+  background-image:
+    repeating-linear-gradient(to right, var(--rule) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(to bottom, var(--rule) 0 1px, transparent 1px 24px);
+  background-position: 0 0;
+  color: var(--ink);
+  font-family: var(--prose);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--prose);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); }
+
+p, li { max-width: var(--measure); }
+p, li, dd, dt, address, h1, h2, h3, h4, caption, th, td, figcaption {
+  overflow-wrap: break-word; }
+a { overflow-wrap: anywhere; }
+p + p { margin-top: var(--g1); }
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible { outline: 2px solid var(--crust-deep); outline-offset: 2px; }
+::selection { background: var(--ink); color: var(--ground); }
+
+/* every number on this site is mono and tabular */
+.n, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+.skip { position: absolute; left: -9999px; top: 0; background: var(--ink);
+        color: var(--ground); padding: var(--h1) var(--g1); z-index: 60;
+        text-decoration: none; font-family: var(--mono); }
+.skip:focus { left: var(--h1); top: var(--h1); }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden;
+                   clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+
+/* --- 4. LAYOUT ---------------------------------------------------------- */
+.sheet { width: 100%; max-width: var(--column); margin-inline: auto;
+         padding-inline: var(--g1); }
+.sheet--wide { max-width: var(--wide); }
+
+.band { padding-block: var(--rhythm); }
+.band--ink { background: var(--ink); color: var(--ground); }
+.band--ink a { color: var(--ground); }
+
+.lede { font-size: var(--step-1); line-height: 1.55; max-width: 58ch; }
+.meta { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); }
+.band--ink .meta { color: rgba(252,252,247,.78); }
+.head { margin-bottom: var(--g2); }
+.head p { margin-top: var(--h1); }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--g2); }
+.two > * { min-width: 0; }
+
+/* --- 5. HEADER ---------------------------------------------------------- */
+.masthead { border-bottom: 1px solid var(--rule); background: var(--ground); }
+.masthead__inner { display: flex; align-items: center; justify-content: space-between;
+                   gap: var(--g1); padding-block: var(--g1); flex-wrap: wrap; }
+.wordmark { display: inline-flex; align-items: center; gap: var(--h1);
+            text-decoration: none; color: var(--ink); }
+.wordmark svg { width: 30px; height: 30px; flex: none; color: var(--crust-deep); }
+.wordmark b { font-family: var(--prose); font-weight: 600; font-size: var(--step-1);
+              display: block; }
+.wordmark span { display: block; font-family: var(--mono);
+                 font-size: var(--step--1); color: var(--muted); }
+.nav ul { display: flex; flex-wrap: wrap; gap: var(--h2) var(--g1); }
+.nav a { font-family: var(--mono); font-size: var(--step--1); text-decoration: none;
+         display: inline-block; padding: 12px 0; min-height: 44px; line-height: 20px;
+         border-bottom: 1px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--accent); }
+
+/* --- 6. BUTTON - underlined mono text, no box -------------------------- */
+.btn { display: inline-block; font-family: var(--mono); font-size: var(--step--1);
+       color: var(--ink); background: none; border: 0; border-radius: 0;
+       cursor: pointer; padding: 12px 0; min-height: 44px;
+       text-decoration: underline; text-underline-offset: 0.3em;
+       text-decoration-thickness: 1px;
+       transition: text-decoration-thickness .12s linear; }
+.btn:hover, .btn:focus-visible { text-decoration-thickness: 3px; }
+.band--ink .btn { color: var(--ground); }
+
+/* --- 7. THE FORMULA TABLE - the primary component --------------------- */
+.formula { margin-top: var(--g1); overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-family: var(--mono);
+        font-size: var(--step--1); }
+caption { text-align: left; font-family: var(--prose); font-size: var(--step--1);
+          color: var(--muted); padding-bottom: var(--h1); max-width: var(--measure); }
+th, td { text-align: left; padding: var(--h1) var(--h1);
+         border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th { background: var(--surface); font-weight: 500; white-space: nowrap;
+           border-bottom: 1px solid var(--rule); }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums;
+             white-space: nowrap; }
+tbody th { font-weight: 400; font-family: var(--prose); }
+tr.total th, tr.total td { background: var(--surface); font-weight: 500;
+                           border-top: 1px solid var(--ink);
+                           border-bottom: 1px solid var(--ink); }
+
+.truehyd { font-family: var(--mono); font-size: var(--step--1);
+           color: var(--muted); margin-top: var(--h1); max-width: none; }
+
+/* --- 8. THE FERMENTATION TIMELINE -------------------------------------- */
+.timeline { margin-block: var(--g2); }
+.timeline__line { position: relative; height: 1px; background: var(--rule);
+                  margin-block: var(--g1); }
+.timeline__stops { display: flex; justify-content: space-between;
+                   gap: var(--h2); flex-wrap: wrap; }
+.timeline__stop { flex: 1 1 0; min-width: 6.5rem; position: relative;
+                  padding-top: var(--h1); }
+.timeline__stop::before { content: ""; position: absolute; top: -1px; left: 0;
+                          width: 9px; height: 9px; background: var(--accent);
+                          transform: translateY(-4px); }
+.timeline__stop time { display: block; font-family: var(--mono);
+                       font-size: var(--step--1); font-weight: 500; }
+.timeline__stop span { display: block; font-size: var(--step--1);
+                       color: var(--muted); line-height: 1.45; }
+
+/* --- 9. METHOD / PROSE -------------------------------------------------- */
+.method { counter-reset: step; margin-top: var(--g1); }
+.method > li { counter-increment: step; display: grid;
+               grid-template-columns: 3rem 1fr; gap: var(--h1);
+               padding-block: var(--g1); border-top: 1px solid var(--rule);
+               max-width: none; }
+.method > li::before { content: counter(step, decimal-leading-zero);
+                       font-family: var(--mono); font-size: var(--step-0);
+                       color: var(--crust-deep); padding-top: 4px; }
+.method p { max-width: 62ch; }
+.method p + p { margin-top: var(--h1); }
+
+.prose h2 { margin-top: var(--g3); margin-bottom: var(--h1);
+            padding-bottom: var(--h2); border-bottom: 1px solid var(--accent); }
+.prose h3 { margin-top: var(--g2); margin-bottom: var(--h2); }
+.prose > h2:first-child, .prose > h3:first-child { margin-top: 0; }
+.prose ul { list-style: disc; margin-top: var(--h1); padding-left: var(--g1); }
+.prose ol { list-style: decimal; margin-top: var(--h1); padding-left: var(--g1); }
+.prose li { margin-top: var(--h2); }
+.prose figure { margin-top: var(--g1); }
+.prose figcaption { font-family: var(--mono); font-size: var(--step--1);
+                    color: var(--muted); margin-top: var(--h2); }
+
+.panel { border-top: 1px solid var(--rule); padding-top: var(--g1);
+         margin-top: var(--g2); }
+.panel h3 { margin-bottom: var(--h1); }
+.panel p, .panel li { max-width: none; font-size: var(--step--1); }
+.panel ul { list-style: disc; padding-left: var(--g1); }
+.panel li { margin-top: var(--h2); }
+
+/* --- 10. INDEX LIST ----------------------------------------------------- */
+.bakes { border-top: 1px solid var(--rule); margin-top: var(--g1); }
+.bake { display: grid; grid-template-columns: 160px 1fr 7rem; gap: var(--g1);
+        padding-block: var(--g1); border-bottom: 1px solid var(--rule);
+        align-items: start; max-width: none; }
+.bake > * { min-width: 0; }
+.bake img { width: 100%; }
+.bake h3 { margin-bottom: var(--h2); }
+.bake p { margin-top: var(--h2); }
+.bake__hyd { font-family: var(--mono); font-size: var(--step--1);
+             text-align: right; }
+.bake__hyd b { display: block; font-size: var(--step-1); font-weight: 500; }
+
+/* --- 11. FORMS ---------------------------------------------------------- */
+.field { display: block; margin-top: var(--g1); max-width: 34rem; }
+.field span { display: block; font-family: var(--mono); font-size: var(--step--1);
+              margin-bottom: var(--h2); }
+.field input, .field textarea, .field select {
+  width: 100%; padding: 12px; min-height: 44px; border-radius: 0;
+  border: 1px solid var(--rule); background: var(--ground); color: var(--ink);
+  font-family: var(--mono); font-size: var(--step--1);
+}
+.field textarea { min-height: 168px; resize: vertical; }
+
+/* --- 12. AD SLOTS ------------------------------------------------------- */
+.ad { margin-block: var(--rhythm); }
+.ad__label { font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+             margin-bottom: var(--h2); }
+.ad__slot { border: 1px solid var(--rule); background: var(--surface);
+            max-width: 100%; }
+.band--ink .ad__slot { background: rgba(252,252,247,.1);
+                       border-color: rgba(252,252,247,.3); }
+.band--ink .ad__label { color: rgba(252,252,247,.78); }
+.ad--leaderboard .ad__slot { width: 728px; height: 90px; }
+.ad--rect      .ad__slot { width: 336px; height: 280px; }
+.ad--mrec      .ad__slot { width: 300px; height: 250px; }
+.ad--leaderboard { margin-block: var(--g2); }
+
+/* --- 13. FOOTER --------------------------------------------------------- */
+.footer { background: var(--ink); color: var(--ground); margin-top: var(--rhythm); }
+.footer a { color: var(--ground); }
+.footer__inner { padding-block: var(--g4); display: grid;
+                 grid-template-columns: repeat(4, 1fr); gap: var(--g2); }
+.footer__inner > * { min-width: 0; }
+.footer h2 { font-family: var(--mono); font-size: var(--step--1); font-weight: 500;
+             margin-bottom: var(--h1); }
+.footer li { font-family: var(--mono); font-size: var(--step--1); max-width: none; }
+.footer li a { display: inline-block; padding-block: 11px; }
+.footer p, .footer address { font-size: var(--step--1); font-style: normal;
+                             max-width: none; }
+.footer__base { border-top: 1px solid rgba(252,252,247,.3); padding-block: var(--g1);
+                display: flex; justify-content: space-between; gap: var(--g1);
+                flex-wrap: wrap; font-family: var(--mono); font-size: var(--step--1); }
+
+/* --- 14. RESPONSIVE ----------------------------------------------------- */
+@media (max-width: 1024px) {
+  .footer__inner { grid-template-columns: repeat(2, 1fr); }
+  .two { grid-template-columns: 1fr; gap: var(--g2); }
+}
+@media (max-width: 720px) {
+  :root { --rhythm: 48px; }
+  .bake { grid-template-columns: 1fr; gap: var(--h1); }
+  .bake__hyd { text-align: left; }
+  .bake__media { max-width: 260px; }
+  .footer__inner { grid-template-columns: 1fr; gap: var(--g1); }
+  .method > li { grid-template-columns: 2.25rem 1fr; }
+  .timeline__stop { flex: 1 1 100%; }
+  th, td { padding: 10px 8px; }
+}
+
+/* --- 15. MOTION --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms; animation-iteration-count: 1;
+    transition-duration: .001ms; scroll-behavior: auto;
+  }
+}
+@media print {
+  .masthead, .footer, .ad { display: none; }
+  body { background: #fff; background-image: none; color: #000; }
+}
+
+/* --- 16. POLICY PAGES --------------------------------------------------- */
+.policy-nav li { font-family: var(--mono); font-size: var(--step--1);
+                 max-width: none; }
+.policy-nav a { display: inline-block; padding-block: 11px; }
+.policy-nav a[aria-current="page"] { text-decoration-thickness: 2px; }

@@ -1,0 +1,74 @@
+IMAGE CREDITS - Bench Notes
+All photographs are downloaded and served locally from assets/images/.
+Nothing is hotlinked. No watermarks, no brand logos, no minors.
+Photographic direction: north-window matte light, macro crumb close-ups,
+beige monochrome grade, flour, linen and wood board, hands dusted in flour.
+
+NOTE ON WHAT THE PHOTOGRAPHS SHOW: these are library photographs of the kind
+of bake each formula describes, not photographs taken of these exact
+formulas. Alt text describes what is actually visible in each frame.
+
+Licence for every file: Pexels Licence - free for commercial and
+non-commercial use, no attribution required. Credit given voluntarily.
+====================================================================
+
+hero/hero-linen.jpg
+  title      : Artisan sourdough bread on a linen background
+  source     : https://www.pexels.com/photo/artisan-sourdough-bread-on-linen-background-31546233/
+
+loaves/country-loaf.jpg
+  title      : Artisanal sourdough bread on a rustic table
+  source     : https://www.pexels.com/photo/artisanal-sourdough-bread-on-rustic-table-38963907/
+
+loaves/whole-wheat.jpg
+  title      : Brown bread on a dark surface
+  source     : https://www.pexels.com/photo/brown-bread-on-a-black-surface-4881589/
+
+loaves/focaccia.jpg
+  title      : Close-up of freshly baked rosemary focaccia bread
+  source     : https://www.pexels.com/photo/close-up-of-freshly-baked-rosemary-focaccia-bread-30666813/
+
+loaves/bagels.jpg
+  title      : Close-up of bagels
+  source     : https://www.pexels.com/photo/close-up-of-bagels-10562146/
+
+loaves/starter.jpg
+  title      : A close-up shot of a woman holding flour
+  source     : https://www.pexels.com/photo/a-close-up-shot-of-a-woman-holding-a-flour-8175355/
+
+loaves/discard-crackers.jpg
+  title      : Close-up shot of crackers on a wooden chopping board
+  photograph : Eva Bronzini
+  source     : https://www.pexels.com/photo/close-up-shot-of-crackers-on-a-wooden-chopping-board-5964846/
+
+steps/step-crumb.jpg
+  title      : Rustic artisan bread slice close-up
+  source     : https://www.pexels.com/photo/rustic-artisan-bread-slice-close-up-33993347/
+
+steps/step-crust.jpg
+  title      : Close-up of artisan bread crust texture
+  source     : https://www.pexels.com/photo/close-up-of-artisan-bread-crust-texture-39174410/
+
+steps/step-knead.jpg
+  title      : Hands kneading dough on a floured surface
+  source     : https://www.pexels.com/photo/hands-kneading-dough-on-floured-surface-35588474/
+
+steps/step-hands.jpg
+  title      : Baker's hands on dough
+  source     : https://www.pexels.com/photo/baker-hands-on-dough-19260794/
+
+steps/step-flour.jpg
+  title      : Roller on flour and dough
+  source     : https://www.pexels.com/photo/food-roller-on-flour-and-dough-17426324/
+
+steps/step-texture.jpg
+  title      : Close-up of fresh artisan bread texture
+  source     : https://www.pexels.com/photo/close-up-of-fresh-artisan-bread-texture-38908822/
+
+og/og-bench-notes.jpg
+  title      : Rustic artisan bread on a wooden table
+  source     : https://www.pexels.com/photo/rustic-artisan-bread-on-wooden-table-38963909/
+
+--------------------------------------------------------------------
+assets/images/logo.svg and favicon.svg are hand-drawn for this site.
+The 24px graph paper is drawn in CSS, not an image.
